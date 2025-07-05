@@ -1,25 +1,25 @@
+import { socialImgs } from "../constants";
+
 const Footer = () => {
   return (
-    <footer className="c-space pt-7 pb-3 border-t border-black-300 flex justify-between items-center flex-wrap gap-5">
-      <div className="text-white-500 flex gap-2">
-        <p>Terms & Conditions</p>
-        <p>|</p>
-        <p>Privacy Policy</p>
+    <footer className="footer">
+      <div className="footer-container">
+        <div className="flex flex-col justify-center">
+          <p>Terms & Conditions</p>
+        </div>
+        <div className="socials">
+          {socialImgs.map((socialImg, index) => (
+            <a key={index} target="_blank" href={socialImg.link} className="icon">
+              <img src={socialImg.imgPath} alt="social icon" />
+            </a>
+          ))}
+        </div>
+        <div className="flex flex-col justify-center">
+          <p className="text-center md:text-end">
+            © {new Date().getFullYear()} Mohammed Ehab. All rights reserved.
+          </p>
+        </div>
       </div>
-
-      <div className="flex gap-3">
-        <a className="social-icon" href="https://github.com/MOHAMED-EHAB-DEV">
-          <img src="/assets/github.svg" alt="github" className="w-1/2 h-1/2" />
-        </a>
-        <a className="social-icon" href="https://x.com/__M__O__H__">
-          <img src="/assets/twitter.svg" alt="twitter" className="w-1/2 h-1/2" />
-        </a>
-        <a className="social-icon" href="https://hashnode.com/@Programming-School">
-          <img src="/assets/hashnode.png" alt="hashnode" className="w-1/2 h-1/2" />
-        </a>
-      </div>
-
-      <p className="text-white-500">© 2024 Mohammed Ehab. All rights reserved.</p>
     </footer>
   );
 };

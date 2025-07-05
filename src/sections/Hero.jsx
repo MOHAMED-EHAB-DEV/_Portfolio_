@@ -1,65 +1,80 @@
-import { Leva } from 'leva';
-import { Suspense } from 'react';
-import { Canvas } from '@react-three/fiber';
-import { useMediaQuery } from 'react-responsive';
-import { PerspectiveCamera } from '@react-three/drei';
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
-import Cube from '../components/Cube.jsx';
-import Rings from '../components/Rings.jsx';
-import ReactLogo from '../components/ReactLogo.jsx';
-import Button from '../components/Button.jsx';
-import Target from '../components/Target.jsx';
-import CanvasLoader from '../components/Loading.jsx';
-import HeroCamera from '../components/HeroCamera.jsx';
-import { calculateSizes } from '../constants/index.js';
-import { HackerRoom } from '../components/HackerRoom.jsx';
+import AnimatedCounter from "../components/AnimatedCounter";
+import Button from "../components/Button";
+import { words } from "../constants";
+import HeroExperience from "../components/models/hero_models/HeroExperience";
+import About from "../components/About.jsx";
 
 const Hero = () => {
-  // Use media queries to determine screen size
-  const isSmall = useMediaQuery({ maxWidth: 440 });
-  const isMobile = useMediaQuery({ maxWidth: 768 });
-  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1024 });
-
-  const sizes = calculateSizes(isSmall, isMobile, isTablet);
+  useGSAP(() => {
+    gsap.fromTo(
+      ".hero-text h1",
+      { y: 50, opacity: 0 },
+      { y: 0, opacity: 1, stagger: 0.2, duration: 1, ease: "power2.inOut" }
+    );
+  });
 
   return (
-    <section className="min-h-screen w-full flex flex-col relative" id="home">
-      <div className="w-full mx-auto flex flex-col sm:mt-36 mt-20 c-space gap-3">
-        <p className="sm:text-3xl text-xl font-medium text-white text-center font-generalsans">
-          Hi, I am Mohammed <span className="waving-hand">👋</span>
-        </p>
-        <p className="hero_tag text-gray_gradient">Building Products & Brands</p>
+    <section id="hero" className="relative overflow-hidden">
+      <div className="absolute top-0 left-0 z-10">
+        <img src="/images/bg.png" alt="" />
       </div>
 
-      <div className="w-full h-full absolute inset-0">
-        <Canvas className="w-full h-full">
-          <Suspense fallback={<CanvasLoader />}>
-            {/* To hide controller */}
-            <Leva hidden />
-            <PerspectiveCamera makeDefault position={[0, 0, 30]} />
+      <div className="hero-layout">
+        {/* LEFT: Hero Content */}
+        <header className="flex flex-col justify-center md:w-full w-screen md:px-20 px-5">
+          <div className="flex flex-col gap-7">
+            <div className="hero-text">
+              <h1>
+                Shaping
+                <span className="slide">
+                  <span className="wrapper">
+                    {words.map((word, index) => (
+                      <span
+                        key={index}
+                        className="flex items-center md:gap-3 gap-1 pb-2"
+                      >
+                        <img
+                          src={word.imgPath}
+                          alt="person"
+                          className="xl:size-12 md:size-10 size-7 md:p-2 p-1 rounded-full bg-white-50"
+                        />
+                        <span>{word.text}</span>
+                      </span>
+                    ))}
+                  </span>
+                </span>
+              </h1>
+              <h1>into Real Projects</h1>
+              <h1>that Deliver Results</h1>
+            </div>
 
-            <HeroCamera isMobile={isMobile}>
-              <HackerRoom scale={sizes.deskScale} position={sizes.deskPosition} rotation={[0.1, -Math.PI, 0]} />
-            </HeroCamera>
+            <p className="text-white-50 md:text-xl relative z-10 pointer-events-none">
+              Hi, I’m Mohammed, a developer based in Egypt with a passion for
+              code.
+            </p>
 
-            <group>
-              <Target position={sizes.targetPosition} />
-              <ReactLogo position={sizes.reactLogoPosition} />
-              <Rings position={sizes.ringPosition} />
-              <Cube position={sizes.cubePosition} />
-            </group>
+            <Button
+              text="See My Work"
+              className="md:w-80 md:h-16 w-60 h-12"
+              id="counter"
+            />
+          </div>
+        </header>
 
-            <ambientLight intensity={1} />
-            <directionalLight position={[10, 10, 10]} intensity={0.5} />
-          </Suspense>
-        </Canvas>
+        {/* RIGHT: 3D Model or Visual */}
+        <figure>
+          <div className="hero-3d-layout">
+            <HeroExperience />
+          </div>
+        </figure>
       </div>
 
-      <div className="absolute bottom-7 left-0 right-0 w-full z-10 c-space">
-        <a href="#about" className="w-fit">
-          <Button name="Let's work together" isBeam containerClass="sm:w-fit w-full sm:min-w-96" />
-        </a>
-      </div>
+      <About />
+
+      <AnimatedCounter />
     </section>
   );
 };

@@ -1,25 +1,27 @@
-import Hero from './sections/Hero.jsx';
-import About from './sections/About.jsx';
-import Footer from './sections/Footer.jsx';
-import Navbar from './sections/Navbar.jsx';
-import Contact from './sections/Contact.jsx';
-import Clients from './sections/Clients.jsx';
-import Projects from './sections/Projects.jsx';
-import WorkExperience from './sections/Experience.jsx';
+import Testimonials from "./sections/Testimonials";
+import Footer from "./sections/Footer";
+import Contact from "./sections/Contact";
+import TechStack from "./sections/TechStack";
+import Experience from "./sections/Experience";
+import Hero from "./sections/Hero";
+import ShowcaseSection from "./sections/ShowcaseSection";
+import LogoShowcase from "./sections/LogoShowcase";
+import FeatureCards from "./sections/FeatureCards";
+import Navbar from "./components/NavBar";
 
-const App = () => {
-  return (
-    <main className="max-w-7xl mx-auto relative">
-      <Navbar />
-      <Hero />
-      <About />
-      <Projects />
-      <Clients />
-      <WorkExperience />
-      <Contact />
-      <Footer />
-    </main>
-  );
-};
+const App = () => (
+    <>
+        <Navbar/>
+        <Hero/>
+        <ShowcaseSection/>
+        <LogoShowcase/>
+        <FeatureCards/>
+        {/*<Experience/>*/}
+        <TechStack/>
+        <Testimonials/>
+        <Contact/>
+        <Footer/>
+    </>
+);
 
 export default App;
