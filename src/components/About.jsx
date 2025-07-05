@@ -56,7 +56,7 @@ const About = () => {
 
     return (
         <div className="padding-x-lg xl:mt-0 my-32 mx-auto" ref={containerRef}>
-            <div className="flex flex-col gap-8 w-2/3">
+            <div className="flex flex-col gap-8 w-full sm:w-2/3">
                 <h1 className="text-3xl font-bold text-white" id="text">
                     Hi, I’m Mohammed Ehab
                 </h1>
