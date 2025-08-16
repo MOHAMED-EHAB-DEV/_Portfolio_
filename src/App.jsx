@@ -16,7 +16,7 @@ const App = () => (
         <ShowcaseSection/>
         <LogoShowcase/>
         <FeatureCards/>
-        {/*<Experience/>*/}
+        <Experience/>
         <TechStack/>
         <Testimonials/>
         <Contact/>

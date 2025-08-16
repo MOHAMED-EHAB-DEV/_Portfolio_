@@ -147,39 +147,33 @@ const techStackIcons = [
 
 const expCards = [
   {
-    review: "Mohammed brought creativity and technical expertise to the team, significantly improving our frontend performance. His work has been invaluable in delivering faster experiences.",
+    review:
+      "Mohammed played a key role in building Estajer from the ground up, delivering a fast, scalable, and modern platform. His technical expertise and performance-focused mindset greatly improved the overall user experience.",
     imgPath: "/images/exp1.png",
     logoPath: "/images/logo1.png",
-    title: "Frontend Developer",
-    date: "January 2023 - Present",
-    responsibilities: [
-      "Developed and maintained user-facing features for the Hostinger website.",
-      "Collaborated closely with UI/UX designers to ensure seamless user experiences.",
-      "Optimized web applications for maximum speed and scalability.",
-    ],
-  },
-  {
-    review: "Mohammed’s contributions to Docker's web applications have been outstanding. He approaches challenges with a problem-solving mindset.",
-    imgPath: "/images/exp2.png",
-    logoPath: "/images/logo2.png",
     title: "Full Stack Developer",
-    date: "June 2020 - December 2023",
+    date: "July 2025 - Present",
     responsibilities: [
-      "Led the development of Docker's web applications, focusing on scalability.",
-      "Worked with backend engineers to integrate APIs seamlessly with the frontend.",
-      "Contributed to open-source projects that were used with the Docker ecosystem.",
+      "Developed Estajer using Next.js with ISR, SSG, and SSR to provide high-performance, SEO-friendly pages.",
+      "Designed and integrated MongoDB (via Mongoose) to handle users, listings, comments, and real-time features.",
+      "Implemented Cloudinary for media uploads, image optimization, and responsive delivery.",
+      "Built a modern UI system with Tailwind CSS, shadcn/ui, and NextUI components, ensuring responsive design and accessibility.",
+      "Optimized platform performance with lazy loading, route-level code splitting, and Core Web Vitals improvements."
     ],
   },
   {
-    review: "Mohammed’s work on Appwrite’s mobile app brought a high level of quality and efficiency. He delivered solutions that enhanced our mobile experience & meet our product goals.",
-    imgPath: "/images/exp3.png",
-    logoPath: "/images/logo3.png",
-    title: "React Native Developer",
-    date: "March 2019 - May 2020",
+    review:
+      "At Imperial Hotel, Mohammed delivered a polished and responsive website with strong attention to detail. His use of modern tools and libraries created an elegant user experience tailored to client needs.",
+    imgPath: "/images/exp2.svg",
+    logoPath: "/images/logo2.png",
+    title: "Front End Developer",
+    date: "November 2024 - April 2025",
     responsibilities: [
-      "Built cross-platform mobile apps using React Native, integrating with Appwrite's backend services.",
-      "Improved app performance and user experience through code optimization and testing.",
-      "Coordinated with the product team to implement features based on feedback.",
+      "Built the Imperial Hotel website with Next.js, ensuring SEO-friendly routing and optimized static builds.",
+      "Developed custom sliders and galleries using Slick Carousel (react-slick/slick-carousel).",
+      "Implemented a consistent design system using Material UI (MUI), including theming and responsive layouts.",
+      "Optimized performance with Next/Image, dynamic imports, and code-splitting to improve page speed.",
+      "Ensured accessibility, responsiveness, and cross-browser compatibility throughout the project."
     ],
   },
 ];
